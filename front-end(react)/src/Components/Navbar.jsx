@@ -11,8 +11,10 @@ function Navbar({productSKUs, emptyList})
     const sendDataForDelete = (productsSKUs) => {
         if(productSKUs.length === 0) return false;
         axios({
-            url : "https://scandapi-production.up.railway.app/",
-            method : "DELETE",
+            url : "https://scandapi-production.up.railway.app/delete.php",
+            // For testing purpose :
+            // url : "https://localhost/api/delete.php",
+            method : "POST",
             headers : {"Content-Type": "application/json"},
             data : JSON.stringify(productsSKUs),
         }).then(response => {
